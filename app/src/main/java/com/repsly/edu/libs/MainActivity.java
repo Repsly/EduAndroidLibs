@@ -1,6 +1,8 @@
 package com.repsly.edu.libs;
 
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +14,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.testing.eventbustest.R;
+import com.getwandup.rxsensor.RxSensor;
+import com.getwandup.rxsensor.domain.RxSensorEvent;
 import com.repsly.edu.libs.database.DbHandler;
 import com.repsly.edu.libs.models.ItemForSending;
 import com.repsly.edu.libs.models.OneModel;
@@ -31,6 +35,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import rx.Subscriber;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -48,6 +53,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.button6).setOnClickListener(this);
         findViewById(R.id.button7).setOnClickListener(this);
         findViewById(R.id.button8).setOnClickListener(this);
+        findViewById(R.id.button9).setOnClickListener(this);
+
     }
 
 
@@ -109,6 +116,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button8:
                 Toast.makeText(getApplicationContext(), "Kliknuo na btn7: " + Remember.getBoolean("clickedOnBtn7", false), Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.button9:
+                RxSensor rxSensor = new RxSensor(this);
+                rxSensor.observe(Sensor.TYPE_ACCELEROMETER, SensorManager.SENSOR_DELAY_NORMAL)
+                        .subscribe(new Subscriber<RxSensorEvent>() {
+                            @Override
+                            public void onCompleted() {
+                                Log.d("RxSensor", "event: onCompleted");
+
+                            }
+                            @Override
+                            public void onError(Throwable e) {
+                                Log.d("RxSensor", "event: onError");
+
+                            }
+
+                            @Override
+                            public void onNext(RxSensorEvent sensorEvent) {
+                                Log.d("RxSensor", "event: " + sensorEvent.toString());
+                            }
+                        });
+                break;
+
         }
     }
 
