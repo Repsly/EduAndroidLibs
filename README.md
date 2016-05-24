@@ -1,3 +1,6 @@
+EduAndroidLibs application
+
+
 List of libs used:
 * Retrofit
 * EventBus
