@@ -18,7 +18,7 @@ import org.greenrobot.eventbus.Subscribe;
 import java.util.List;
 
 /**
- * Created by tomkan on 17.5.2016..
+ * Showing use of EventBus and some other stuff.
  */
 public class SecondActivity extends Activity implements View.OnClickListener {
 
@@ -36,9 +36,13 @@ public class SecondActivity extends Activity implements View.OnClickListener {
             ParcelTest pt = b.getParcelable("pt");
             if (pt != null) {
                 Toast.makeText(getApplicationContext(),
-                               "Dobio sam: " + pt.getName() + " " + pt.getAge() + " " + pt
-                                       .getHowLong() + " " + pt.isGood(), Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), "A njegov objekt: " + pt.getOmt().getDa() + " " + pt.getOmt().isHa(), Toast.LENGTH_SHORT)
+                               "I got: " + pt.getName() + " " + pt.getAge() + " " + pt
+                                       .getHowLong() + " " + pt.isGood(), Toast.LENGTH_SHORT)
+                     .show();
+                Toast.makeText(getApplicationContext(),
+                               "And its object inside: " + pt.getOmt().getDa() + " " + pt.getOmt()
+                                                                                         .isHa(),
+                               Toast.LENGTH_SHORT)
                      .show();
             }
         }
@@ -62,15 +66,15 @@ public class SecondActivity extends Activity implements View.OnClickListener {
         }
         tv.setText(da);
         Toast.makeText(getApplicationContext(),
-                       "Evo me, dobio sam ga!",
+                       "Here, I GOT HIM!!",
                        Toast.LENGTH_SHORT).show();
     }
 
     @Subscribe
     public void blabla(List<OneModel> models) {
         Toast.makeText(getApplicationContext(),
-                       "Evo i druga metoda dobila.",
-                       Toast.LENGTH_SHORT).show();
+                       "Also, this other method got it. This is cool.",
+                       Toast.LENGTH_LONG).show();
     }
 
     @Subscribe

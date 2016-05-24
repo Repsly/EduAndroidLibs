@@ -14,7 +14,6 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
- * Created by tomkan on 19.5.2016..
  */
 public interface GitInterface {
     @GET("users/{user}/repos")

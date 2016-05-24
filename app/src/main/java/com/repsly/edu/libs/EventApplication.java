@@ -5,7 +5,7 @@ import android.app.Application;
 import com.tumblr.remember.Remember;
 
 /**
- * Created by tomkan on 23.5.2016..
+ * Application cool class.
  */
 public class EventApplication extends Application {
 
