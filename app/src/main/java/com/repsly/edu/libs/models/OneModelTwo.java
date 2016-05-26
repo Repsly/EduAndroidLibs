@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Created by tomkan on 17.5.2016..
  */
 public class OneModelTwo implements Parcelable{
     String da;

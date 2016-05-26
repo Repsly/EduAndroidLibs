@@ -4,7 +4,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by tomkan on 20.5.2016..
  */
 public class UserSearchItem {
     @SerializedName("login")

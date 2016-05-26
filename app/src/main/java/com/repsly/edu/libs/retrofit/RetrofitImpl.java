@@ -13,7 +13,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by tomkan on 19.5.2016..
  */
 public class RetrofitImpl {
     String url;

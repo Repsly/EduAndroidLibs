@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Created by tomkan on 22.5.2016..
+ * Used for parcelable transfer between activities.
  */
 public class ParcelTest implements Parcelable {
     String name;

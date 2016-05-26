@@ -40,6 +40,10 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Subscriber;
 
+/**
+ * This is where all starts. Here we will only put libs that do something to help us develop better Android apps.
+ * Also, it's fine to hardcode strings here. It's cool. Don't worry.
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
@@ -62,7 +66,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
     @Override
     public void onClick(View v) {
         DbHandler dbHandler;
@@ -72,13 +75,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(i);
                 break;
             case R.id.button2:
-                Toast.makeText(getApplicationContext(), "Započeo skidanje!", Toast.LENGTH_SHORT)
+                Toast.makeText(getApplicationContext(), "Started downloading...", Toast.LENGTH_SHORT)
                      .show();
                 new Async().execute();
                 break;
             case R.id.button3:
                 dbHandler = new DbHandler(getApplicationContext());
-                dbHandler.saveDrool("tralal", "haha");
+                dbHandler.saveDrool("hey", "ho");
                 break;
             case R.id.button4:
                 dbHandler = new DbHandler(getApplicationContext());
@@ -86,9 +89,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                Toast.LENGTH_SHORT).show();
                 break;
             case R.id.button5:
+                //using retrofit inside another thread
                 new Async2().execute();
                 break;
             case R.id.button6:
+                //using retrofit with callback
                 Retrofit retrofit = new Retrofit.Builder()
                         .baseUrl("http://requestb.in/")
                         .addConverterFactory(GsonConverterFactory.create())
@@ -100,9 +105,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onResponse(Call<ItemForSending> call,
                                            Response<ItemForSending> response) {
                         if (response.isSuccessful()) {
-                            Log.d("Repsly debug message", "Yeaaaa");
+                            Log.d("Libs debug message", "Yeaaaa, this works!");
                         } else {
-                            Log.d("Repsly debug message", "Noooo");
+                            Log.d("Libs debug message", "Nooo. Fuck.");
                         }
                     }
 
@@ -120,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.button8:
-                Toast.makeText(getApplicationContext(), "Kliknuo na btn7: " + Remember.getBoolean("clickedOnBtn7", false), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Clicked on a btn7: " + Remember.getBoolean("clickedOnBtn7", false), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.button9:
                 RxSensor rxSensor = new RxSensor(this);

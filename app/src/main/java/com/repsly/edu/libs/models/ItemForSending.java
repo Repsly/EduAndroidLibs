@@ -1,7 +1,6 @@
 package com.repsly.edu.libs.models;
 
 /**
- * Created by tomkan on 21.5.2016..
  */
 public class ItemForSending {
 

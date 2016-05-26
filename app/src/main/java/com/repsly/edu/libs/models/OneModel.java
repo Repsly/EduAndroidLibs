@@ -7,7 +7,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by tomkan on 17.5.2016..
  */
 public class OneModel implements Parcelable {
 
