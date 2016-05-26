@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">EduLibs</string>
     <string name="action_settings">Settings</string>
+
+    <!-- dialog-->
+    <string name="dialog_title">Give me 5</string>
+    <string name="dialog_ok">Ok</string>
+    <string name="dialog_no">YOu got nothing</string>
+    <string name="dialog_success">You are the boss!</string>
+    <string name="dialog_dismiss">I said 5</string>
 </resources>

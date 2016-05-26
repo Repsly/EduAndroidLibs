@@ -11,8 +11,10 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.testing.eventbustest.R;
 import com.getwandup.rxsensor.RxSensor;
 import com.getwandup.rxsensor.domain.RxSensorEvent;
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.button7).setOnClickListener(this);
         findViewById(R.id.button8).setOnClickListener(this);
         findViewById(R.id.button9).setOnClickListener(this);
-
+        findViewById(R.id.button10).setOnClickListener(this);
     }
 
 
@@ -138,9 +140,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             }
                         });
                 break;
+            case R.id.button10:
+                new MaterialDialog.Builder(this)
+                        .title(R.string.dialog_title)
+                        .customView(R.layout.dialog_input,false)
+                        .positiveText(R.string.dialog_ok)
+                        .negativeText(R.string.dialog_no)
+                        .positiveColor(getResources().getColor(R.color.turqouise))
+                        .negativeColor(getResources().getColor(R.color.red))
+                        .dividerColor(getResources().getColor(R.color.turqouise))
+                        .callback(dialogCallback)
+                        .show();
+                break;
 
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -209,4 +224,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private MaterialDialog.ButtonCallback dialogCallback = new MaterialDialog.ButtonCallback() {
+        @Override
+        public void onPositive(MaterialDialog dialog) {
+            super.onPositive(dialog);
+            EditText input = (EditText) dialog.findViewById(R.id.etGiveFive);
+            if(input.getText().toString().equals("5")){
+                Toast.makeText(getBaseContext(),R.string.dialog_success,Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }else{
+                Toast.makeText(getBaseContext(),R.string.dialog_dismiss,Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        @Override
+        public void onNegative(MaterialDialog dialog) {
+            super.onNegative(dialog);
+        }
+    };
 }

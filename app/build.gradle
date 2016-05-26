@@ -34,4 +34,6 @@ dependencies {
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
     compile (group: 'com.tumblr', name: 'remember', version: '1.0.0', ext: 'aar')
     compile 'com.getwandup:rxsensor:1.0.1'
+    compile 'com.afollestad.material-dialogs:core:0.8.5.9'
+
 }
