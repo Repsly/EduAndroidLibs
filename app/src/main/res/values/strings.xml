@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">EduLibs</string>
     <string name="action_settings">Settings</string>
+    <string name="accessToken">pk.eyJ1IjoiYWh1c2thbm8iLCJhIjoiY2lvbzNkOXRnMDAwc3kxbTBocW15YXRpcyJ9.gZ77RHHOoicOSgeKq19tlA</string>
 
     <!-- dialog-->
     <string name="dialog_title">Give me 5</string>

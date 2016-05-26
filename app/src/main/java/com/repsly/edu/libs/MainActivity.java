@@ -18,6 +18,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.testing.eventbustest.R;
 import com.getwandup.rxsensor.RxSensor;
 import com.getwandup.rxsensor.domain.RxSensorEvent;
+import com.repsly.edu.libs.activities.HolderActivity;
 import com.repsly.edu.libs.database.DbHandler;
 import com.repsly.edu.libs.models.ItemForSending;
 import com.repsly.edu.libs.models.OneModel;
@@ -57,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.button8).setOnClickListener(this);
         findViewById(R.id.button9).setOnClickListener(this);
         findViewById(R.id.button10).setOnClickListener(this);
+        findViewById(R.id.button11).setOnClickListener(this);
+
     }
 
 
@@ -152,7 +155,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .callback(dialogCallback)
                         .show();
                 break;
-
+            case R.id.button11:
+                startActivity(new Intent(this,HolderActivity.class));
+                break;
         }
     }
 
